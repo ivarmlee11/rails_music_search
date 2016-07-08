@@ -1,0 +1,14 @@
+<h1>Main#index</h1>
+<p>Find me in app/views/main/index.html.erb</p>
+
+<%= form_tag(root_path, method: :GET) do %>
+    <%= label_tag(:term, 'Search') %>
+    <%= text_field_tag(:term) %>
+    <%= submit_tag('Search') %>
+<% end %>
+
+<% @data.each do |music| %>
+<p><%= music['artistName'] %></p>
+<p><%= music['trackName'] %></p>
+<audio src="<%= music['previewUrl'] %>" controls></audio>
+<% end %>
